@@ -10,13 +10,13 @@ class patient extends Model
         'first_name', 'last_name', 'date_of_birth', 'place_of_birth', 'immunisation', 'rec_of_imm', 'sex',
     ];
 
-    public function father()
+    public function fathers()
     {
-        return $this->belongsTo('Father');
+        return $this->belongsTo('App\Father');
     }
 
-    public function mother()
+    public function mothers()
     {
-        return $this->belongsTo('Mother');
+        return $this->belongsTo('App\Mother');
     }
 }

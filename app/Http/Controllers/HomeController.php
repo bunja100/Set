@@ -43,7 +43,6 @@ class HomeController extends Controller
 
     public function save(Request $req)
     {
-
         $this->validate($req, [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -58,8 +57,6 @@ class HomeController extends Controller
             'mothers_name' => 'required|max:255',
             'Occupation_of_mother' => 'required|max:255',
             'address_of_mother' => 'required|max:255',
-
-
         ]);
 
         $patient = new Patient();
@@ -78,15 +75,16 @@ class HomeController extends Controller
         $father->Occupation_of_father = $req['Occupation_of_father'];
         $father->address_of_father = $req['address_of_father'];
 
-        $patient->father()->save($father);
+        $patient->fathers()->associate($father);
+        $father->save();
 
-       $mother = new Mother();
-        $mother->fathers_name = $req['fathers_name'];
-        $mother->Occupation_of_father = $req['Occupation_of_mother'];
-        $mother->address_of_father = $req['address_of_mother'];
+        $mother = new Mother();
+        $mother->mothers_name = $req['fathers_name'];
+        $mother->Occupation_of_mother = $req['Occupation_of_mother'];
+        $mother->address_of_mother = $req['address_of_mother'];
 
-        $patient->mother()->save($mother);
-
+        $patient->mothers()->associate($mother);
+        $mother->save();
 
         return redirect(route('display'));
 
@@ -94,12 +92,10 @@ class HomeController extends Controller
 
     public function display()
     {
-        $mother = Mother::all();
-        $father = Father::all();
-        $patients = Patient::all();
-        $no = 0;
-        $records = array_merge($mother->toArray(), $father->toArray(), $patients->toArray());
-        $records = (object)$records;
+
+
+        $records = Patient::with(['mothers', 'fathers'])->get();
+        $no = 1;
         return view('layouts.display', compact('records', 'no'));
     }
 

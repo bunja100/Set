@@ -32,10 +32,10 @@
                                 <tr>
 
                                     <td>{{$no++}}</td>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$no++}}</td>
+                                    <td>{{$record->first_name}}</td>
+                                    <td>{{$record->last_name}}</td>
+                                    <td>{{$record->place_of_birth}}</td>
+                                    <td>{{$record->sex}}</td>
                                     <td><a href="{{route('details')}}">View</a></td>
 
                                 </tr>
