@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                <div  style="background-image: url({{asset('image')}})" class="col-md-6 form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                                     <label for="last_name" class="col-md-4 control-label">Last Name</label>
 
                                     <div class="col-md-6">

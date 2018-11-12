@@ -92,8 +92,6 @@ class HomeController extends Controller
 
     public function display()
     {
-
-
         $records = Patient::with(['mothers', 'fathers'])->get();
         $no = 1;
         return view('layouts.display', compact('records', 'no'));
@@ -109,9 +107,22 @@ class HomeController extends Controller
         return view('auth._register');
     }
 
-    public function details()
+    public function details($id)
     {
-        return view('layouts.details');
+
+        $patient = Patient::with(['mothers', 'fathers'])->findOrFail($id);
+        return view('layouts.details')->with('patient', $patient);
+    }
+
+    public function update($id, Request $request){
+        return $request->all();
+        $patient = $patient = Patient::with(['mothers', 'fathers'])->findOrFail($id);
+        return $request->all();
+//        $patient->update()
+    }
+
+    public function destroy(){
+        return 'This is the delete link';
     }
 
 }

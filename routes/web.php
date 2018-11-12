@@ -19,15 +19,17 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/register', 'HomeController@register')->name('register');
-Route::get('display', 'HomeController@display')->name('display');
+Route::get('patient/register', 'HomeController@register')->name('register');
+Route::get('patient/display', 'HomeController@display')->name('display');
 /*Route::get('display', function () {
     return view('display');
 });*/
 
 
 Route::resource('forms', 'FormController');
-Route::post('/save', 'HomeController@save')->name('save');
+//Route::resource('patient', 'HomeController')
+Route::post('patient/save', 'HomeController@save')->name('save');
 
-Route::get('/create','HomeController@create')->name('create');
-Route::get('/details', 'HomeController@details')->name('details');
+Route::get('patient/create','HomeController@create')->name('create');
+Route::get('/patient/{id}', 'HomeController@details')->name('patient');
+Route::get('/patient/{id}/edit', 'HomeController@update')->name('update');

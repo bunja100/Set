@@ -36,7 +36,7 @@
                                     <td>{{$record->last_name}}</td>
                                     <td>{{$record->place_of_birth}}</td>
                                     <td>{{$record->sex}}</td>
-                                    <td><a href="{{route('details')}}">View</a></td>
+                                    <td><a href="{{route('patient', $record->id)}}">View</a></td>
 
                                 </tr>
                             @endforeach
