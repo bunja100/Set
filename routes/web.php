@@ -30,6 +30,8 @@ Route::resource('forms', 'FormController');
 //Route::resource('patient', 'HomeController')
 Route::post('patient/save', 'HomeController@save')->name('save');
 
+Route::get('patient/print/{id}','HomeController@print')->name('print');
+
 Route::get('patient/create','HomeController@create')->name('create');
 Route::get('/patient/{id}', 'HomeController@details')->name('patient');
-Route::get('/patient/{id}/edit', 'HomeController@update')->name('update');
+Route::post('patient/update', 'HomeController@update')->name('update');

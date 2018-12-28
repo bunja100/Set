@@ -19,6 +19,8 @@ class CreateFathersTable extends Migration
             $table->string('fathers_name');
             $table->string('Occupation_of_father');
             $table->string('address_of_father');
+              
+
 //            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
         });
     }

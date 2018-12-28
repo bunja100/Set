@@ -11,6 +11,6 @@ class Father extends Model
 
     public function patients()
     {
-        return $this->hasMany('Patient');
+        return $this->hasMany(Patient::class);
     }
 }

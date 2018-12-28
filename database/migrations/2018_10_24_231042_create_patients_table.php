@@ -23,6 +23,10 @@ class CreatePatientsTable extends Migration
             $table->string('immunisation');
             $table->string('sex');
             $table->string('rec_of_imm');
+            $table->integer('mother_id')->unsigned()->nullable();
+            $table->foreign('mother_id')->references('id')->on('mothers');
+            $table->integer('father_id')->unsigned()->nullable();
+            $table->foreign('father_id')->references('id')->on('fathers');
         });
     }
 

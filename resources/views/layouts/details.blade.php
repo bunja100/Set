@@ -17,7 +17,10 @@
                 </div>
 
                 <div class="col-md-8" style="border: 1px solid black">
-                    <form action="" method="post">
+                    <form action="{{ route('update') }}" method="post">
+                        {{ csrf_field() }}
+
+                        <input type="hidden" name="id" value="{{$patient->id}}">
                         <div class="col-md-12">
                             <h1 style="text-align:center; font-style:italic" ;> Patient's information </h1><br>
                         </div>
@@ -64,41 +67,75 @@
                         <div class="form-group col-md-6">
                             <label for="">Father's Name:</label>
                             <input type="text" name="fathers_name" class="form-control"
-                                   value="{{$patient->fathers_name}}">
+                                   value="{{$father->fathers_name}}">
                         </div>
+
+
                         <div class="form-group col-md-6">
                             <label for="">Father's Occupation </label>
                             <input type="text" name="Occupation_of_father" class="form-control"
-                                   value="{{$patient->Occupation_of_father}}">
+                                   value="{{$father->Occupation_of_father}}">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="">Address of Father:</label>
                             <input type="text" name="address_of_father" class="form-control"
-                                   value="{{$patient->address_of_father}}">
+                                   value="{{$father->address_of_father}}">
                         </div>
 
                         {{-- Mother's Info--}}
                         <div class="form-group col-md-6">
                             <label for="">Mother's Name:</label>
                             <input type="text" class="form-control" name="mothers_name"
-                                   value="{{$patient->mothers_name}}">
+                                   value="{{$mother->mothers_name}}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Mother's Occupation </label>
                             <input type="text" class="form-control" name="Occupation_of_mother"
-                                   value="{{$patient->Occupation_of_mother}}">
+                                   value="{{$mother->Occupation_of_mother}}">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="">Address of Mother:</label>
                             <input type="text" name="address_of_mother" class="form-control"
-                                   value="{{$patient->address_of_mother}}">
+                                   value="{{$mother->address_of_mother}}">
                         </div>
-                        <a href="{{route('update', $patient->id)}}" class="btn btn-primary">Update </a>
-                        {{--                        <a href="{{route('update', $patient->id)}}" class="btn btn-danger pull-right">Delete</a>--}}
 
+                        <div class="col-md-12">
+                            <h1 style="text-align:center; font-style:italic" ;> Verification</h1><br>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="">Confirm Password:</label>
+                            <input type="password" name="c_password" class="form-control"
+                                   placeholder="Please provide the password to update record" required >
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{route('display')}}" class="btn btn-danger pull-right">Cancel</a>
+                                <a href="{{route('print', $patient->id)}}" target="_blank"
+                                   class="btn btn-success pull-right">Print</a>
+                            </div>
+                        </div>
+                        <br>
                     </form>
 
-
+                    <div>
+                        @if (session()->has('msg'))
+                            <div class="alert alert-dismissable alert-success text-center">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>
+                                    {!! session()->get('msg') !!}
+                                </strong>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

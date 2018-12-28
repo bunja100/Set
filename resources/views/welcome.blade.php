@@ -78,10 +78,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    data storage
+                  {{ config('app.name') }}
                 </div>
-
-
+                <div class="content m-b-md">
+                  
+                </div>
             </div>
         </div>
     </body>

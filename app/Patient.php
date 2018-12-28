@@ -8,15 +8,16 @@ class patient extends Model
 {
     protected $fillable = [
         'first_name', 'last_name', 'date_of_birth', 'place_of_birth', 'immunisation', 'rec_of_imm', 'sex',
+        'father_id', 'mother_id',
     ];
 
-    public function fathers()
+    public function father()
     {
-        return $this->belongsTo('App\Father');
+        return $this->belongsTo(Father::class);
     }
 
-    public function mothers()
+    public function mother()
     {
-        return $this->belongsTo('App\Mother');
+        return $this->belongsTo(Mother::class);
     }
 }

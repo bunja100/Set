@@ -50,9 +50,12 @@
                                 <label for="sex" class="col-md-4 control-label">Sex</label>
 
                                 <div class="col-md-6">
-                                    <input id="sex" type="text" class="form-control" name="sex" value="{{ old('sex') }}"
-                                           required autofocus>
 
+                                      <select class="form-control" id="sex" name="sex" required autofocus>
+                                        <option></option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                      </select>
 
                                     @if ($errors->has('sex'))
                                         <span class="help-block">
@@ -67,8 +70,12 @@
                                 <label for="immunisation" class="col-md-4 control-label">immunisation </label>
 
                                 <div class="col-md-6">
-                                    <input id="immunisation" type="text" class="form-control" name="immunisation"
-                                           value="{{ old('immunisation') }}" required autofocus>
+
+                                  <select class="form-control" id="immunisation" name="immunisation" required autofocus>
+                                    <option></option>
+                                    <option>yes</option>
+                                    <option>No</option>
+                                  </select>
 
                                     @if ($errors->has('immunisation'))
                                         <span class="help-block">
@@ -82,8 +89,12 @@
                                 <label for="rec_of_imm" class="col-md-4 control-label">Record of immunisation </label>
 
                                 <div class="col-md-6">
-                                    <input id="rec_of_imm" type="text" class="form-control" name="rec_of_imm"
-                                           value="{{ old('rec_of_imm') }}" required autofocus>
+                                  <select class="form-control" id="rec_of_imm" name="rec_of_imm" required autofocus>
+                                    <option></option>
+                                    <option>yes</option>
+                                    <option>No</option>
+                                  </select>
+
 
                                     @if ($errors->has('rec_of_imm'))
                                         <span class="help-block">

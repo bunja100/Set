@@ -11,6 +11,6 @@ class Mother extends Model
 
     public function patients()
     {
-        return $this->hasMany('Patient');
+        return $this->hasMany(Patient::class);
     }
 }
